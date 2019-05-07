@@ -1,4 +1,4 @@
-# Number-Guesser-
+# Number-Guesser-Doubles
 
 ### This Project Utilizes:
 ##### - HTML
