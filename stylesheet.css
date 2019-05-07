@@ -45,30 +45,38 @@ h1 {
 
 .set-range{
   margin: 10px 0 10px 10px;
+  margin-left:20px;
 }
 
 label {
   display: block;
+  color:#606060;
 }
 
 .min-div,
 .max-div{
   display: inline-block;
+  margin-left:20px;
 }
 
 .min-input,
 .max-input{
-  height: 30px;
-  width: 200px;;
+  height: 40px;
+  width: 220px;;
+
 }
 
 .update-btn {
-  background-color: #606060;
+  background-color: #6E6E6E;
   border: none;
   border-radius: 30px;
   color: white;
-  height: 28px;
-  width: 15%;
+  font-weight:600;
+  font-size:22px;
+  height: 46px;
+  margin-left:35px;
+  width: 20%;
+  
 }
 
 .range-field,
@@ -107,6 +115,10 @@ h3{
   margin: 0 0 10px 20px;
 }
 
+.chal-head-2{
+  margin-top:35px;
+}
+
 .name1-div1,
 .name1-div2,
 .name2-div1,
@@ -130,7 +142,7 @@ h3{
 .submit-btn,
 .reset-btn, 
 .clear-btn {
-  background-color: #606060;
+  background-color: #6E6E6E;
   border-radius: 30px;
   color: white;
   font-size: 22px;
@@ -149,10 +161,22 @@ h3{
   cursor: not-allowed;
 }
 
-.score-display {
-  display: flex;
-  height: 30vh;
-  justify-content: space-between;
+.score-header{
+  margin: 10px 0 0 20px;
+}
+
+.chal-1-info, 
+.chal-2-info{
+  display:inline-block;
+}
+
+.chal-1-info{
+  margin-left:50px;
+  
+}
+
+.chal-2-info{
+  margin-left:150px;
 }
 
 .card-field {
