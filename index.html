@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <body>
+
   <head>
     <title>Number Guesser</title>
     <meta charset="utf-8">
@@ -15,24 +17,42 @@
   <section class="input-field">
     <article class="range-field">
       <h3 class="set-range">Set Range</h3>
-      <label for="min-range">Min Range</label>
-      <input type="number" class="min-input" id="min-range" aria-required="true">
-      <label for="max-range">Max Range</label>
-      <input type="number" class="max-input" id="max-range" aria-required="true">
-      <button type="submit" class="update-btn">Update</button>
+      <form>
+        <div class="min-div">
+          <label for="min-range">Min Range</label>
+          <input type="number" class="min-input" id="min-range" aria-required="true">
+        </div>
+        <div class="max-div">
+          <label for="max-range">Max Range</label>
+          <input type="number" class="max-input" id="max-range" aria-required="true">
+        </div>
+        <button type="submit" class="update-btn">Update</button>
+      </form>
     </article>
     <article class="player-field">
       <p>The Current Range is <span class="min-num">1</span> to <span class="max-num">100</span></p>
       <h3>Challenger 1</h3>
-      <label for="name1">Name</label>
-      <input type="text" class="name-1-input" id="name1" aria-required="true">
-      <label for="guess1">Guess</label>
-      <input type="number" class="guess-1-input" id="guess1" aria-required="true">
+      <form>
+        <div class="name1-div1">
+          <label for="name1">Name</label>
+          <input type="text" class="name-1-input" id="name1" aria-required="true">
+        </div>
+        <div class="name1-div2">
+          <label for="guess1">Guess</label>
+          <input type="number" class="guess-1-input" id="guess1" aria-required="true">
+        </div>
+      </form>
       <h3>Challenger 2</h3>
-      <label for="name2">Name</label>
-      <input type="text" class="name-2-input" id="name2" aria-required="true">
-      <label for="guess2">Guess</label>
-      <input type="number" class="guess-2-input" id="guess2" aria-required="true">
+      <form>
+        <div class="name2-div1">
+          <label for="name2">Name</label>
+          <input type="text" class="name-2-input" id="name2" aria-required="true">
+        </div>
+        <div class="name2-div2">
+          <label for="guess2">Guess</label>
+          <input type="number" class="guess-2-input" id="guess2" aria-required="true">
+        </div>
+      </form>
       <button type="submit" class="submit-btn">Submit Guess</button>
       <button type="submit" class="reset-btn">Reset Game</button>
       <button type="submit" class="clear-btn">Clear Game</button>
@@ -65,3 +85,5 @@
     </article>
   </section>
 </body>
+
+</html>

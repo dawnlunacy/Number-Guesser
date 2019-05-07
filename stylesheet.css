@@ -33,16 +33,41 @@ h1 {
   display: flex;
   flex-direction: column;
   float: left;
-  height: 85vh;
+  height: 100vh;
   width: 50%;
 }
 
 .range-field {
+  display: inline-block;
   margin-top: 20px;
 }
 
 .set-range{
   margin: 10px 0 10px 10px;
+}
+
+label {
+  display: block;
+}
+
+.min-div,
+.max-div{
+  display: inline-block;
+}
+
+.min-input,
+.max-input{
+  height: 30px;
+  width: 200px;;
+}
+
+.update-btn {
+  background-color: #606060;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  height: 28px;
+  width: 15%;
 }
 
 .range-field,
@@ -59,8 +84,21 @@ h3{
   margin: 0;
 }
 
-label {
-  color: #606060;
+.name1-div {
+  display: inline-block;
+}
+
+.name1-div1,
+.name1-div2,
+.name2-div1,
+.name2-div2 {
+  display: inline-block;
+}
+
+.name-1-input,
+.name-2-input{
+  height: 20px;
+  width: 30%;
 }
 
 .card-field {
@@ -70,13 +108,14 @@ label {
   display: flex;
   flex-direction: column;
   float: right;
-  height: 85vh;
+  height: 100vh;
   width: 50%;
 }
 
 .winner-card {
   background-color: white;
   border: 1px solid #606060;
+  margin-top: 20px;
   width: 90%;
 }
 
