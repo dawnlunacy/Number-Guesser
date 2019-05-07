@@ -39,6 +39,7 @@ h1 {
 
 .range-field {
   display: inline-block;
+  height: 20vh;
   margin-top: 20px;
 }
 
@@ -79,6 +80,19 @@ label {
   width: 94%
 }
 
+.player-field {
+  height: 50vh;
+}
+
+.cur-range {
+  margin: 10px 0 30px 20px;
+}
+
+span {
+  font-weight: 800;
+  text-decoration: underline;
+}
+
 h3{
   color: #606060;
   margin: 0;
@@ -88,17 +102,57 @@ h3{
   display: inline-block;
 }
 
+.chal-head-1,
+.chal-head-2 {
+  margin: 0 0 10px 20px;
+}
+
 .name1-div1,
 .name1-div2,
 .name2-div1,
 .name2-div2 {
   display: inline-block;
+  margin-left: 20px;
 }
 
 .name-1-input,
 .name-2-input{
-  height: 20px;
-  width: 30%;
+  height: 40px;
+  width: 400px;
+}
+
+.guess-1-input,
+.guess-2-input {
+  height: 40px;
+  width: 200px;
+}
+
+.submit-btn,
+.reset-btn, 
+.clear-btn {
+  background-color: #606060;
+  border-radius: 30px;
+  color: white;
+  font-size: 22px;
+  font-weight: 600;
+  height: 46px;
+  margin: 50px 0 15px 10px;
+  width: 29%;
+}
+
+#larger-button{
+  width: 33%;
+}
+
+.disabled {
+  background-color: #d0d2d3;
+  cursor: not-allowed;
+}
+
+.score-display {
+  display: flex;
+  height: 30vh;
+  justify-content: space-between;
 }
 
 .card-field {

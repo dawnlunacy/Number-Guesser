@@ -26,12 +26,12 @@
           <label for="max-range">Max Range</label>
           <input type="number" class="max-input" id="max-range" aria-required="true">
         </div>
-        <button type="submit" class="update-btn">Update</button>
+        <button type="submit" class="update-btn">UPDATE</button>
       </form>
     </article>
     <article class="player-field">
-      <p>The Current Range is <span class="min-num">1</span> to <span class="max-num">100</span></p>
-      <h3>Challenger 1</h3>
+      <p class="cur-range">The Current Range is <span class="min-num">1</span> to <span class="max-num">100</span></p>
+      <h3 class= "chal-head-1">Challenger 1</h3>
       <form>
         <div class="name1-div1">
           <label for="name1">Name</label>
@@ -42,7 +42,7 @@
           <input type="number" class="guess-1-input" id="guess1" aria-required="true">
         </div>
       </form>
-      <h3>Challenger 2</h3>
+      <h3 class="chal-head-1">Challenger 2</h3>
       <form>
         <div class="name2-div1">
           <label for="name2">Name</label>
@@ -53,23 +53,23 @@
           <input type="number" class="guess-2-input" id="guess2" aria-required="true">
         </div>
       </form>
-      <button type="submit" class="submit-btn">Submit Guess</button>
-      <button type="submit" class="reset-btn">Reset Game</button>
-      <button type="submit" class="clear-btn">Clear Game</button>
+      <button type="submit" class="submit-btn" id= "larger-button">SUBMIT GUESS</button>
+      <button type="submit" class="reset-btn">RESET GAME</button>
+      <button type="submit" class="clear-btn">CLEAR GAME</button>
     </article>
     <article class="score-display">
-      <h3>Latest Score</h3>
+      <h3 class= "score-header">Latest Score</h3>
       <div class="chal-1-info">
         <p class="chal-1-name">Challenger 1 Name</p>
         <p>current guess</p>
         <p class="pink-guess-1">97</p>
-        <p class="boom-msg"></p>
+        <p class="boom-msg">BOOM</p>
       </div>
-      <div class="chal-1-info">
+      <div class="chal-2-info">
         <p class="chal-2-name">Challenger 2 Name</p>
         <p>current guess</p>
         <p class="pink-guess-2">3</p>
-        <p class="boom-msg"></p>
+        <p class="boom-msg">BOOM</p>
       </div>
     </article>
   </section>
