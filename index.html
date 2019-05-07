@@ -10,53 +10,47 @@
   </head>
   <header>
     <h1>Number <span>Guesser</span></h1>
-    <p class= "p-header">Ultimate Challenger Edition</p>
+    <p class="p-header">Ultimate Challenger Edition</p>
   </header>
   <section class="input-field">
     <article class="range-field">
-      <h3>Set Range</h3>
-      <label for="min range">Min Range
-        <input type="number" class="min-input">
-      </label>
-      <label for="max-range">Max Range
-        <input type="number" class="max-input">
-      </label>
+      <h3 class="set-range">Set Range</h3>
+      <label for="min-range">Min Range</label>
+      <input type="number" class="min-input" id="min-range">
+      <label for="max-range">Max Range</label>
+      <input type="number" class="max-input" id="max-range">
       <button type="submit" class="update-btn">Update</button>
     </article>
     <article class="player-field">
-      <p>The Current Range is <span class= "min-num">1</span> to <span class= "max-num">100</span></p>
+      <p>The Current Range is <span class="min-num">1</span> to <span class="max-num">100</span></p>
       <h3>Challenger 1</h3>
-      <label for="name">Name
-        <input type="text" class="name-1-input">
-      </label>
-      <label for="guess">
-        <input type="number" class="guess-1-input">
-      </label>
+      <label for="name1">Name</label>
+      <input type="text" class="name-1-input" id="name1">
+      <label for="guess1">Guess</label>
+      <input type="number" class="guess-1-input" id="guess1">
       <h3>Challenger 2</h3>
-      <label for="name">Name
-        <input type="text" class="name-2-input">
-      </label>
-      <label for="guess">
-        <input type="number" class="guess-2-input">
-      </label>
+      <label for="name2">Name</label>
+      <input type="text" class="name-2-input" id="name2">
+      <label for="guess2">Guess</label>
+      <input type="number" class="guess-2-input" id="guess2">
       <button type="submit" class="submit-btn">Submit Guess</button>
       <button type="submit" class="reset-btn">Reset Game</button>
       <button type="submit" class="clear-btn">Clear Game</button>
     </article>
     <article class="score-display">
       <h3>Latest Score</h3>
-      <div class= "chal-1-info">
-      <p class="chal-1-name">Challenger 1 Name</p>
-      <p>current guess</p>
-      <p class="pink-guess-1">97</p>
-      <p class="boom-msg"></p>
+      <div class="chal-1-info">
+        <p class="chal-1-name">Challenger 1 Name</p>
+        <p>current guess</p>
+        <p class="pink-guess-1">97</p>
+        <p class="boom-msg"></p>
       </div>
-      <div class= "chal-1-info">
-      <p class="chal-2-name">Challenger 2 Name</p>
-      <p>current guess</p>
-      <p class="pink-guess-2">3</p>
-      <p class="boom-msg"></p>
-    </div>
+      <div class="chal-1-info">
+        <p class="chal-2-name">Challenger 2 Name</p>
+        <p>current guess</p>
+        <p class="pink-guess-2">3</p>
+        <p class="boom-msg"></p>
+      </div>
     </article>
   </section>
   <section class="card-field">
