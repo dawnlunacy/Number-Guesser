@@ -13,19 +13,48 @@ body {
 
 header {
   background-color: #404042;
-  height: 15vh;
+  height: 20vh;
   width: 100%
 }
 
+.guess-header {
+  font-weight: 300;
+}
+
+.p-header {
+  font-size: 20px;
+  font-weight: 300;
+  margin: 0;
+}
+
 h1 {
-  color: #dd1972;
+  color: #ec458b;
+  font-size: 80px;
   margin: 0;
   text-align: center;
 }
 
 .p-header {
+  align-items: center;
   color:  white;
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  margin-left: 26%;
   text-align: center;
+  width: 48%;
+}
+
+.p-header:before,
+.p-header:after {
+    content: '';
+    border-top: 2px solid;
+    margin: 0 20px 0 0;
+    flex: 1 0 20px;
+}
+
+.p-header:after {
+    margin: 0 0 0 20px;
 }
 
 .input-field {
@@ -193,7 +222,7 @@ h3{
 
 .pink-guess-1,
 .pink-guess-2 {
-  color: #dd1972;
+  color: #ec458b;
   font-size: 100px;
   font-weight: 800;
   margin: 0;
