@@ -95,7 +95,3 @@ function guessMessage2(){
   }
 }
 
-
-
-
-
