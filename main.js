@@ -15,21 +15,22 @@ clearBtn.addEventListener('click', clearFields);
 
 function clearFields (e) {
   e.preventDefault();
-  minInput = '';
-  maxInput = '';
-  nameOneInput = '';
-  nameTwoInput = '';
-  guessOneInput = '';
-  guessTwoInput = '';
+  minInput.value = '';
+  maxInput.value = '';
+  nameOneInput.value = '';
+  nameTwoInput.value = '';
+  guessOneInput.value = '';
+  guessTwoInput.value = '';
 };
 
 function genNum(min,max){
-  min=Math.ceil(min);
-  max=Math.floor(max);
-  return Math.floor(Math.random()*(max-min+1))+min;
+  min2=Math.ceil(min);
+  max2=Math.floor(max);
+  return Math.floor(Math.random()*(max2-min2+1))+min2;
 };
 
-function randomNumber(){
+function randomNumber(e){
+  e.preventDefault();
   var min1=minInput.value;
   var max1=maxInput.value;
   randomNum=genNum(min1,max1);
