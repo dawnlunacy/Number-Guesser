@@ -9,9 +9,13 @@ var guessTwoInput=document.querySelector('.guess-2-input');
 var clearBtn=document.querySelector('.clear-btn');
 var minNum=document.querySelector('.min-num');
 var maxNum=document.querySelector('.max-num');
-
+var resetBtn=document.querySelector('.reset-btn');
 
 clearBtn.addEventListener('click', clearFields);
+window.addEventListener('load', disableToggle1);
+window.addEventListener('load', disableToggle2);
+minInput.addEventListener('keyup', disableToggle1);
+nameOneInput.addEventListener('keyup', disableToggle2);
 
 function clearFields (e) {
   e.preventDefault();
@@ -40,13 +44,31 @@ function randomNumber(e){
 updateBtn.addEventListener('click',randomNumber);
 
 
-function disableToggle (){
+function disableToggle1 (){
   if(minInput.value === '' && maxInput.value === ''){
-    updateBtn.disabled = true;
+    updateBtn.disabled == true;
     updateBtn.classList.add('disabled');
   }else{
-
+    updateBtn.disabled == false;
+    updateBtn.classList.remove('disabled');
   }
 }
+
+function disableToggle2 (){
+  if(nameOneInput.value === '' && nameTwoInput.value === ''){
+    resetBtn.disabled == true;
+    clearBtn.disabled == true;
+    resetBtn.classList.add('disabled');
+    clearBtn.classList.add('disabled');
+  }else{
+    resetBtn.disabled == false;
+    clearBtn.disabled == false;
+    resetBtn.classList.remove('disabled');
+    clearBtn.classList.remove('disabled');
+  }
+}
+
+
+
 
 
