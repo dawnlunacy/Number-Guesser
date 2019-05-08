@@ -6,6 +6,7 @@ html {
 }
 
 body {
+  /* background-color: #d1d2d4; */
   font-family: "Open sans";
   margin: 0;
 }
@@ -17,7 +18,7 @@ header {
 }
 
 h1 {
-  color: #ec458b;
+  color: #dd1972;
   margin: 0;
   text-align: center;
 }
@@ -33,7 +34,6 @@ h1 {
   display: flex;
   flex-direction: column;
   float: left;
-  height: 100vh;
   width: 50%;
 }
 
@@ -74,9 +74,9 @@ label {
   font-weight:600;
   font-size:22px;
   height: 46px;
+  margin-bottom: 10px;
   margin-left:35px;
   width: 20%;
-  
 }
 
 .range-field,
@@ -88,15 +88,17 @@ label {
   width: 94%
 }
 
-.player-field {
-  height: 50vh;
-}
+/* .player-field {
+} */
 
 .cur-range {
+  color: #606060;
   margin: 10px 0 30px 20px;
 }
 
-span {
+.min-num,
+.max-num {
+  color: #606060;
   font-weight: 800;
   text-decoration: underline;
 }
@@ -148,7 +150,7 @@ h3{
   font-size: 22px;
   font-weight: 600;
   height: 46px;
-  margin: 50px 0 15px 10px;
+  margin: 50px 0 30px 10px;
   width: 29%;
 }
 
@@ -162,21 +164,53 @@ h3{
 }
 
 .score-header{
-  margin: 10px 0 0 20px;
+  margin: 10px 0 15px 20px;
 }
 
 .chal-1-info, 
 .chal-2-info{
   display:inline-block;
+  margin-bottom: 20px;
+  width: 49%;
 }
 
-.chal-1-info{
-  margin-left:50px;
-  
+.chal-1-info {
+  text-align: center;
 }
 
 .chal-2-info{
-  margin-left:150px;
+  border-left: 3px solid #f8f8f8; 
+  text-align: center;
+}
+
+.chal-1-name,
+.chal-2-name {
+  color: #606060;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.pink-guess-1,
+.pink-guess-2 {
+  color: #dd1972;
+  font-size: 100px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.current-guess {
+  color: #d0d2d3;
+  font-size: 20px;
+  margin: 0;
+}
+
+.boom-msg {
+  color: #d0d2d3;
+  font-size: 22px;
+  font-weight: 100;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .card-field {
@@ -186,7 +220,7 @@ h3{
   display: flex;
   flex-direction: column;
   float: right;
-  height: 100vh;
+  height: 120vh;
   width: 50%;
 }
 
@@ -198,7 +232,20 @@ h3{
 }
 
 h4,
-h5,
-p{
+.vs{
   color: #606060;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.card-header {
+  text-align: center;
+}
+
+h5 {
+  color: #606060;
+  font-size: 40px;
+  font-weight: 100;
+  margin: 0;
+  text-align: center;
 }
