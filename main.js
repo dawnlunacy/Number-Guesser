@@ -10,12 +10,19 @@ var clearBtn=document.querySelector('.clear-btn');
 var minNum=document.querySelector('.min-num');
 var maxNum=document.querySelector('.max-num');
 var resetBtn=document.querySelector('.reset-btn');
+var boomMsgOne=document.querySelector('.boom-msg-1');
+var boomMsgTwo=document.querySelector('.boom-msg-2');
+var submitBtn=document.querySelector('.submit-btn');
+
+
 
 clearBtn.addEventListener('click', clearFields);
 window.addEventListener('load', disableToggle1);
 window.addEventListener('load', disableToggle2);
 minInput.addEventListener('keyup', disableToggle1);
 nameOneInput.addEventListener('keyup', disableToggle2);
+submitBtn.addEventListener('click', guessMessage1);
+submitBtn.addEventListener('click', guessMessage2);
 
 function clearFields (e) {
   e.preventDefault();
@@ -65,6 +72,26 @@ function disableToggle2 (){
     clearBtn.disabled == false;
     resetBtn.classList.remove('disabled');
     clearBtn.classList.remove('disabled');
+  }
+}
+
+function guessMessage1(){
+  if (parseInt(guessOneInput.value) > randomNum){
+    boomMsgOne.innerText = "That's too high";
+  }else if (parseInt(guessOneInput.value) < randomNum){
+    boomMsgOne.innerText = "That's too low";
+  }else{
+    boomMsgOne.innterText ="BOOM!";
+  }
+}
+
+function guessMessage2(){
+  if (parseInt(guessTwoInput.value) > randomNum){
+    boomMsgTwo.innerText = "That's too high";
+  }else if (parseInt(guessTwoInput.value) < randomNum){
+    boomMsgTwo.innerText = "That's too low";
+  }else{
+    boomMsgTwo.innterText ="BOOM!";
   }
 }
 
