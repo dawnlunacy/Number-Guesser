@@ -67,8 +67,3 @@ function disableToggle2 (){
     clearBtn.classList.remove('disabled');
   }
 }
-
-
-
-
-
