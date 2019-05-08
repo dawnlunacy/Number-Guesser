@@ -250,7 +250,8 @@ h3{
   margin: 0;
 }
 
-.boom-msg {
+.boom-msg-1,
+.boom-msg-2{
   color: #d0d2d3;
   font-size: 22px;
   font-weight: 100;
