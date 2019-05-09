@@ -108,6 +108,7 @@ function guessMessage1(){
     boomMsgOne.innerText = "That's too low";
   }else{
     boomMsgOne.innerText ="BOOM!";
+    createCard();
   }
 }
 
@@ -193,7 +194,7 @@ function emptyGuessInputTwo(){
 
 function createCard (e) {
   e.preventDefault(e);
-  cardField.innerHTML =
+  cardField.innerHTML +=
   `<article class="winner-card">
   <div class="card-header">
   <h4 class="chal-1-name">${nameOneInput.value}</h4>
