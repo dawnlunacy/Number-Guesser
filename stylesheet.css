@@ -202,9 +202,15 @@ h3{
 
 .error-msg {
   color: #ec458b;
-  font-size: 14px;
+  font-size: 16px;
   margin: 0;
   margin-left: 30px;
+}
+
+img {
+  height: 20px;
+  margin-top: 10px;
+  width: 20px;
 }
 
 .score-header{
@@ -318,5 +324,5 @@ h5 {
 }
 
 .time {
-  margin-left: 60px;
+  margin-left: 150px;
 }
