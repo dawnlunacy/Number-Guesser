@@ -13,7 +13,10 @@ var resetBtn=document.querySelector('.reset-btn');
 var boomMsgOne=document.querySelector('.boom-msg-1');
 var boomMsgTwo=document.querySelector('.boom-msg-2');
 var submitBtn=document.querySelector('.submit-btn');
-
+var chalOneName=document.querySelector('.chal-1-name');
+var chalTwoName=document.querySelector('.chal-2-name');
+var chalOneGuess=document.querySelector('.pink-guess-1');
+var chalTwoGuess=document.querySelector('.pink-guess-2');
 
 
 clearBtn.addEventListener('click', clearFields);
@@ -23,6 +26,12 @@ minInput.addEventListener('keyup', disableToggle1);
 nameOneInput.addEventListener('keyup', disableToggle2);
 submitBtn.addEventListener('click', guessMessage1);
 submitBtn.addEventListener('click', guessMessage2);
+submitBtn.addEventListener('click', nameUpdate);
+submitBtn.addEventListener('click', guessUpdate);
+updateBtn.addEventListener('click',randomNumber);
+updateBtn.addEventListener('click',rangeUpdate);
+
+
 
 function clearFields (e) {
   e.preventDefault();
@@ -48,7 +57,7 @@ function randomNumber(e){
   console.log(randomNum)
 }
 
-updateBtn.addEventListener('click',randomNumber);
+
 
 
 function disableToggle1 (){
@@ -90,11 +99,25 @@ function guessMessage2(){
     boomMsgTwo.innerText = "That's too high";
   }else if (parseInt(guessTwoInput.value) < randomNum){
     boomMsgTwo.innerText = "That's too low";
-  }else{
+  }else if(parseInt(guessTwoInput.value) === randomNum){
     boomMsgTwo.innterText ="BOOM!";
+    }
   }
+
+function rangeUpdate(){
+   minNum.innerText = minInput.value; 
+   maxNum.innerText = maxInput.value;
 }
 
+function nameUpdate(){
+  chalOneName.innerText = nameOneInput.value;
+  chalTwoName.innerText = nameTwoInput.value;
+}
+
+function guessUpdate(){
+  chalOneGuess.innerText = parseInt(guessOneInput.value);
+  chalTwoGuess.innerText = parseInt(guessTwoInput.value);
+}
 
 
 
