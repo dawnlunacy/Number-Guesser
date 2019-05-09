@@ -200,7 +200,9 @@ h3{
   border: 2px solid #ec458b;
 }
 
-.error-msg {
+.error-p-range,
+.error-p-chal-1,
+.error-p-chal-2 {
   color: #ec458b;
   font-size: 16px;
   margin: 0;
