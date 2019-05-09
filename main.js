@@ -17,7 +17,9 @@ var chalOneName=document.querySelector('.chal-1-name');
 var chalTwoName=document.querySelector('.chal-2-name');
 var chalOneGuess=document.querySelector('.pink-guess-1');
 var chalTwoGuess=document.querySelector('.pink-guess-2');
-
+var errorParaRange=document.querySelector('.error-p-range');
+var errorChalOne=document.querySelector('.error-p-chal-1');
+var errorChalTwo=document.querySelector('.error-p-chal-2');
 
 clearBtn.addEventListener('click', clearFields);
 window.addEventListener('load', disableToggle1);
@@ -28,9 +30,20 @@ submitBtn.addEventListener('click', guessMessage1);
 submitBtn.addEventListener('click', guessMessage2);
 submitBtn.addEventListener('click', nameUpdate);
 submitBtn.addEventListener('click', guessUpdate);
+submitBtn.addEventListener('click', errorOutsideGuessOneMax);
+submitBtn.addEventListener('click', errorOutsideGuessOneMin);
+submitBtn.addEventListener('click', errorOutsideGuessTwoMax);
+submitBtn.addEventListener('click', errorOutsideGuessTwoMin);
+submitBtn.addEventListener('click', emptyNameInputOne);
+submitBtn.addEventListener('click', emptyGuessInputOne);
+submitBtn.addEventListener('click', emptyNameInputTwo);
+submitBtn.addEventListener('click', emptyGuessInputTwo);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
+updateBtn.addEventListener('click', errorRange);
+// updateBtn.addEventListener('click', emptyRange);
 
+// minInput.addEventListener('keydown', noE);
 
 
 function clearFields (e) {
@@ -90,7 +103,7 @@ function guessMessage1(){
   }else if (parseInt(guessOneInput.value) < randomNum){
     boomMsgOne.innerText = "That's too low";
   }else{
-    boomMsgOne.innterText ="BOOM!";
+    boomMsgOne.innerText ="BOOM!";
   }
 }
 
@@ -100,7 +113,7 @@ function guessMessage2(){
   }else if (parseInt(guessTwoInput.value) < randomNum){
     boomMsgTwo.innerText = "That's too low";
   }else if(parseInt(guessTwoInput.value) === randomNum){
-    boomMsgTwo.innterText ="BOOM!";
+    boomMsgTwo.innerText ="BOOM!";
     }
   }
 
@@ -119,7 +132,72 @@ function guessUpdate(){
   chalTwoGuess.innerText = parseInt(guessTwoInput.value);
 }
 
+function errorRange(){
+  if(parseInt(maxInput.value) <= parseInt(minInput.value)){
+    errorParaRange.innerText = "Min range must be lower than max range!";
+  }
+}
 
+function errorOutsideGuessOneMax(){
+  if(parseInt(guessOneInput.value) > parseInt(maxInput.value)){
+  errorChalOne.innerText = "Guess is higher than range!";
+  }
+}
+
+function errorOutsideGuessOneMin(){
+  if(parseInt(guessOneInput.value) < parseInt(minInput.value)){
+  errorChalOne.innerText = "Guess is lower than range!";
+  }
+}
+
+function errorOutsideGuessTwoMax(){
+  if(parseInt(guessTwoInput.value) > parseInt(maxInput.value)){
+  errorChalTwo.innerText = "Guess is higher than range!";
+  }
+}
+
+function errorOutsideGuessTwoMin(){
+  if(parseInt(guessTwoInput.value) < parseInt(minInput.value)){
+  errorChalTwo.innerText = "Guess is lower than range!";
+  }
+}
+
+function emptyNameInputOne(){
+  if(nameOneInput.value === ''){
+    errorChalOne.innerText = "Please enter player 1 name!";
+  }
+}
+
+function emptyGuessInputOne(){
+  if(guessOneInput.value === ''){
+    errorChalOne.innerText = "Please enter player 1 guess!";
+  }
+}
+
+function emptyNameInputTwo(){
+  if(nameTwoInput.value === ''){
+    errorChalTwo.innerText = "Please enter player 2 name!";
+  }
+}
+
+function emptyGuessInputTwo(){
+  if(guessTwoInput.value === ''){
+    errorChalTwo.innerText = "Please enter player 2 guess!";
+  }
+}
+
+
+// function emptyRange(){
+//   if(parseInt(minInput.value)=== '' || parseInt(maxInput.value)=== ''){
+//     errorParaRange.innerText = "Please set a min and max range.";
+//   }
+// }
+
+// function noE(){
+//   if(minInput.value === 'e'){
+//     errorPara.innerText = "ENTER A NUMBER!";
+//   }
+// }
 
 
 
