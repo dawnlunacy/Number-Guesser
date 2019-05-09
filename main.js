@@ -20,6 +20,7 @@ var chalTwoGuess=document.querySelector('.pink-guess-2');
 var errorParaRange=document.querySelector('.error-p-range');
 var errorChalOne=document.querySelector('.error-p-chal-1');
 var errorChalTwo=document.querySelector('.error-p-chal-2');
+var cardField=document.querySelector('.card-field');
 
 clearBtn.addEventListener('click', clearFields);
 window.addEventListener('load', disableToggle1);
@@ -41,6 +42,12 @@ submitBtn.addEventListener('click', emptyGuessInputTwo);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
+submitBtn.addEventListener('click', createCard);
+cardField.addEventListener('click', function (e) {
+  if (e.target.className === 'x-btn') {
+    e.target.parentElement.parentElement.remove();
+  }
+});
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
@@ -69,9 +76,6 @@ function randomNumber(e){
   randomNum=genNum(min1,max1);
   console.log(randomNum)
 }
-
-
-
 
 function disableToggle1 (){
   if(minInput.value === '' && maxInput.value === ''){
@@ -114,6 +118,7 @@ function guessMessage2(){
     boomMsgTwo.innerText = "That's too low";
   }else if(parseInt(guessTwoInput.value) === randomNum){
     boomMsgTwo.innerText ="BOOM!";
+    createCard();
     }
   }
 
@@ -184,6 +189,26 @@ function emptyGuessInputTwo(){
   if(guessTwoInput.value === ''){
     errorChalTwo.innerText = "Please enter player 2 guess!";
   }
+}
+
+function createCard (e) {
+  e.preventDefault(e);
+  cardField.innerHTML =
+  `<article class="winner-card">
+  <div class="card-header">
+  <h4 class="chal-1-name">${nameOneInput.value}</h4>
+  <p class ="vs">vs</p>
+  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
+</div>
+  <h2>CHAL WINNER NAME</h2>
+  <h5>WINNER</h5>
+  <div class= "card-footer">
+  <p class="total-guesses">47 GUESSES</p>
+  <p class="time">1.35 MINUTES</p>
+  <button type="button" class="x-btn">&#10005;</button>
+</div>
+</article>`
+// cardField.insertAdjacentHTML('afterbegin', newCard);
 }
 
 
