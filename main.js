@@ -20,6 +20,11 @@ var chalTwoGuess=document.querySelector('.pink-guess-2');
 var errorParaRange=document.querySelector('.error-p-range');
 var errorChalOne=document.querySelector('.error-p-chal-1');
 var errorChalTwo=document.querySelector('.error-p-chal-2');
+var cardField=document.querySelector('.card-field');
+var winnerName=document.querySelector('.winner-name');
+var winner;
+
+
 
 clearBtn.addEventListener('click', clearFields);
 window.addEventListener('load', disableToggle1);
@@ -38,16 +43,24 @@ submitBtn.addEventListener('click', emptyNameInputOne);
 submitBtn.addEventListener('click', emptyGuessInputOne);
 submitBtn.addEventListener('click', emptyNameInputTwo);
 submitBtn.addEventListener('click', emptyGuessInputTwo);
+submitBtn.addEventListener('click', createCard);
+submitBtn.addEventListener('click', increment);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
+
+cardField.addEventListener('click', function (e) {
+  if (e.target.className === 'x-btn') {
+    e.target.parentElement.parentElement.remove();
+  }
+});
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
 
 
 function clearFields (e) {
-  e.preventDefault();
+  // e.preventDefault();
   minInput.value = '';
   maxInput.value = '';
   nameOneInput.value = '';
@@ -69,9 +82,6 @@ function randomNumber(e){
   randomNum=genNum(min1,max1);
   console.log(randomNum)
 }
-
-
-
 
 function disableToggle1 (){
   if(minInput.value === '' && maxInput.value === ''){
@@ -104,6 +114,9 @@ function guessMessage1(){
     boomMsgOne.innerText = "That's too low";
   }else{
     boomMsgOne.innerText ="BOOM!";
+    winner = nameOneInput.value;
+    createCard();
+    winnerOne();
   }
 }
 
@@ -114,6 +127,9 @@ function guessMessage2(){
     boomMsgTwo.innerText = "That's too low";
   }else if(parseInt(guessTwoInput.value) === randomNum){
     boomMsgTwo.innerText ="BOOM!";
+    winner = nameTwoInput.value;
+    createCard();
+    winnerTwo();
     }
   }
 
@@ -184,6 +200,41 @@ function emptyGuessInputTwo(){
   if(guessTwoInput.value === ''){
     errorChalTwo.innerText = "Please enter player 2 guess!";
   }
+}
+
+function createCard(e) {
+  e.preventDefault(e);
+  cardField.innerHTML +=
+  `<article class="winner-card">
+  <div class="card-header">
+  <h4 class="chal-1-name">${nameOneInput.value}</h4>
+  <p class ="vs">vs</p>
+  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
+</div>
+  <h2 class="winner-name">${winner}</h2>
+  <h5>WINNER</h5>
+  <div class= "card-footer">
+  <p class="total-guesses" Guesses<a id="count"></a>0</p>
+  <p class="time">1.35 MINUTES</p>
+  <button type="button" class="x-btn">&#10005;</button>
+</div>
+</article>`
+    adjustRange();
+    clearFields();
+// cardField.insertAdjacentHTML('afterbegin', newCard);
+}
+
+function adjustRange(){
+  var changeMin = minNum.innerHTML;
+  var changeMax = maxNum.innerHTML;
+  minNum.innerHTML = parseInt(changeMin) -10;
+  maxNum.innerHTML = parseInt(changeMax) +10;
+}
+
+
+function increment() {
+  counter ++;
+  document.getElementsById('count').innerHTML = counter;
 }
 
 
