@@ -115,7 +115,7 @@ function guessMessage1(){
   }else{
     boomMsgOne.innerText ="BOOM!";
     winner = nameOneInput.value;
-    cardField.innerHTML +=
+    var newCard=
   `<article class="winner-card">
   <div class="card-header">
   <h4 class="chal-1-name">${nameOneInput.value}</h4>
@@ -130,6 +130,7 @@ function guessMessage1(){
   <button type="button" class="x-btn">&#10005;</button>
 </div>
 </article>`
+cardField.insertAdjacentHTML('afterbegin', newCard);
 adjustRange();
   }
 }
@@ -142,7 +143,7 @@ function guessMessage2(){
   }else{
     boomMsgTwo.innerText ="BOOM!";
     winner = nameTwoInput.value;
-    cardField.innerHTML +=
+    var newCard=
   `<article class="winner-card">
   <div class="card-header">
   <h4 class="chal-1-name">${nameOneInput.value}</h4>
@@ -157,6 +158,7 @@ function guessMessage2(){
   <button type="button" class="x-btn">&#10005;</button>
 </div>
 </article>`
+cardField.insertAdjacentHTML('afterbegin', newCard);
 adjustRange();
     }
   }
