@@ -43,8 +43,8 @@ submitBtn.addEventListener('click', emptyNameInputOne);
 submitBtn.addEventListener('click', emptyGuessInputOne);
 submitBtn.addEventListener('click', emptyNameInputTwo);
 submitBtn.addEventListener('click', emptyGuessInputTwo);
-submitBtn.addEventListener('click', createCard);
-submitBtn.addEventListener('click', increment);
+submitBtn.addEventListener('click', clearFields);
+// submitBtn.addEventListener('click', increment);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
@@ -115,8 +115,23 @@ function guessMessage1(){
   }else{
     boomMsgOne.innerText ="BOOM!";
     winner = nameOneInput.value;
-    createCard();
-    winnerOne();
+    var newCard=
+  `<article class="winner-card">
+  <div class="card-header">
+  <h4 class="chal-1-name">${nameOneInput.value}</h4>
+  <p class ="vs">vs</p>
+  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
+</div>
+  <h2 class="winner-name">${winner}</h2>
+  <h5>WINNER</h5>
+  <div class= "card-footer">
+  <p class="total-guesses" Guesses<a id="count"></a>0</p>
+  <p class="time">1.35 MINUTES</p>
+  <button type="button" class="x-btn">&#10005;</button>
+</div>
+</article>`
+cardField.insertAdjacentHTML('afterbegin', newCard);
+adjustRange();
   }
 }
 
@@ -125,11 +140,26 @@ function guessMessage2(){
     boomMsgTwo.innerText = "That's too high";
   }else if (parseInt(guessTwoInput.value) < randomNum){
     boomMsgTwo.innerText = "That's too low";
-  }else if(parseInt(guessTwoInput.value) === randomNum){
+  }else{
     boomMsgTwo.innerText ="BOOM!";
     winner = nameTwoInput.value;
-    createCard();
-    winnerTwo();
+    var newCard=
+  `<article class="winner-card">
+  <div class="card-header">
+  <h4 class="chal-1-name">${nameOneInput.value}</h4>
+  <p class ="vs">vs</p>
+  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
+</div>
+  <h2 class="winner-name">${winner}</h2>
+  <h5>WINNER</h5>
+  <div class= "card-footer">
+  <p class="total-guesses" Guesses<a id="count"></a>0</p>
+  <p class="time">1.35 MINUTES</p>
+  <button type="button" class="x-btn">&#10005;</button>
+</div>
+</article>`
+cardField.insertAdjacentHTML('afterbegin', newCard);
+adjustRange();
     }
   }
 
@@ -202,27 +232,27 @@ function emptyGuessInputTwo(){
   }
 }
 
-function createCard(e) {
-  e.preventDefault(e);
-  cardField.innerHTML +=
-  `<article class="winner-card">
-  <div class="card-header">
-  <h4 class="chal-1-name">${nameOneInput.value}</h4>
-  <p class ="vs">vs</p>
-  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
-</div>
-  <h2 class="winner-name">${winner}</h2>
-  <h5>WINNER</h5>
-  <div class= "card-footer">
-  <p class="total-guesses" Guesses<a id="count"></a>0</p>
-  <p class="time">1.35 MINUTES</p>
-  <button type="button" class="x-btn">&#10005;</button>
-</div>
-</article>`
-    adjustRange();
-    clearFields();
-// cardField.insertAdjacentHTML('afterbegin', newCard);
-}
+// function createCard(e) {
+//   e.preventDefault(e);
+//   cardField.innerHTML +=
+//   `<article class="winner-card">
+//   <div class="card-header">
+//   <h4 class="chal-1-name">${nameOneInput.value}</h4>
+//   <p class ="vs">vs</p>
+//   <h4 class="chal-2-name">${nameTwoInput.value}</h4>
+// </div>
+//   <h2 class="winner-name">${winner}</h2>
+//   <h5>WINNER</h5>
+//   <div class= "card-footer">
+//   <p class="total-guesses" Guesses<a id="count"></a>0</p>
+//   <p class="time">1.35 MINUTES</p>
+//   <button type="button" class="x-btn">&#10005;</button>
+// </div>
+// </article>`
+//     adjustRange();
+//     clearFields();
+// // cardField.insertAdjacentHTML('afterbegin', newCard);
+// }
 
 function adjustRange(){
   var changeMin = minNum.innerHTML;
@@ -232,10 +262,10 @@ function adjustRange(){
 }
 
 
-function increment() {
-  counter ++;
-  document.getElementsById('count').innerHTML = counter;
-}
+// function increment() {
+//   counter ++;
+//   document.getElementsById('count').innerHTML = counter;
+// }
 
 
 // function emptyRange(){
