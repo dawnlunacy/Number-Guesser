@@ -11,4 +11,10 @@
 ## Our Desktop Comp: 
 ![image](https://user-images.githubusercontent.com/47184994/57468241-540ba200-7241-11e9-9fce-5ad229e733ed.png)
 
+## Mobile Comp:
+
+
+## Our Mobile Comp:
+![image](https://user-images.githubusercontent.com/47184994/57649743-395d6400-7586-11e9-97e0-d9730c660b44.png)
+
 
