@@ -332,11 +332,15 @@ h5 {
 
 .x-btn {
   background-color: #606060;
-  border-radius: 60%;
+  border-radius: 50%;
   color: white;
-  height: 35px;
+  height: 40px;
   font-size: 20px;
   margin-left: 240px;
-  margin-top: 15px;
-  width: 45px;
+  margin-top: 8px;
+  width: 40px;
+}
+
+.clear-cards-btn{
+  align-self: flex-end;
 }

@@ -22,7 +22,9 @@ var errorChalOne=document.querySelector('.error-p-chal-1');
 var errorChalTwo=document.querySelector('.error-p-chal-2');
 var cardField=document.querySelector('.card-field');
 var winnerName=document.querySelector('.winner-name');
+var clearCardsBtn=document.querySelector('clear-cards-btn');
 var winner;
+var counter = 0;
 
 
 
@@ -31,6 +33,7 @@ window.addEventListener('load', disableToggle1);
 window.addEventListener('load', disableToggle2);
 minInput.addEventListener('keyup', disableToggle1);
 nameOneInput.addEventListener('keyup', disableToggle2);
+submitBtn.addEventListener('click', increment);
 submitBtn.addEventListener('click', guessMessage1);
 submitBtn.addEventListener('click', guessMessage2);
 submitBtn.addEventListener('click', nameUpdate);
@@ -44,14 +47,20 @@ submitBtn.addEventListener('click', emptyGuessInputOne);
 submitBtn.addEventListener('click', emptyNameInputTwo);
 submitBtn.addEventListener('click', emptyGuessInputTwo);
 submitBtn.addEventListener('click', clearFields);
-// submitBtn.addEventListener('click', increment);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
+updateBtn.addEventListener('click', resetCounter);
 
 cardField.addEventListener('click', function (e) {
   if (e.target.className === 'x-btn') {
     e.target.parentElement.parentElement.remove();
+  }
+});
+
+cardField.addEventListener('click', function(e){
+  if(e.target.className === 'clear-cards-btn') {
+    e.target.parentElement.remove();
   }
 });
 // updateBtn.addEventListener('click', emptyRange);
@@ -125,7 +134,7 @@ function guessMessage1(){
   <h2 class="winner-name">${winner}</h2>
   <h5>WINNER</h5>
   <div class= "card-footer">
-  <p class="total-guesses" Guesses<a id="count"></a>0</p>
+  <p class="total-guesses" Guesses<a id="count"></a>${counter}</p>
   <p class="time">1.35 MINUTES</p>
   <button type="button" class="x-btn">&#10005;</button>
 </div>
@@ -153,7 +162,7 @@ function guessMessage2(){
   <h2 class="winner-name">${winner}</h2>
   <h5>WINNER</h5>
   <div class= "card-footer">
-  <p class="total-guesses" Guesses<a id="count"></a>0</p>
+  <p class="total-guesses" Guesses<a id="count"></a>${counter}</p>
   <p class="time">1.35 MINUTES</p>
   <button type="button" class="x-btn">&#10005;</button>
 </div>
@@ -259,6 +268,16 @@ function adjustRange(){
   var changeMax = maxNum.innerHTML;
   minNum.innerHTML = parseInt(changeMin) -10;
   maxNum.innerHTML = parseInt(changeMax) +10;
+}
+
+function increment(){
+  console.log('first', counter);
+  counter++;
+  console.log('second', counter);
+}
+
+function resetCounter(){
+  counter = 0;
 }
 
 
