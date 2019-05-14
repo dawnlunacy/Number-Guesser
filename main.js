@@ -16,13 +16,18 @@ var submitBtn = document.querySelector('.submit-btn');
 var errorChalOne = document.querySelector('.error-p-chal-1');
 var errorChalTwo = document.querySelector('.error-p-chal-2');
 var cardField = document.querySelector('.card-field');
+var errorParaRangeOne=document.querySelector('.error-p-range-1');
+var errorParaRangeTwo=document.querySelector('.error-p-range-2');
 var winner;
 var counter = 0;
 
 clearBtn.addEventListener('click', clearAll);
-window.addEventListener('load', disableButtons);
+clearBtn.addEventListener('click', disableButtons);
+window.addEventListener('load', randomNumber);
 minInput.addEventListener('keyup', disableButtons);
+maxInput.addEventListener('keyup', disableButtons);
 nameOneInput.addEventListener('keyup', disableButtons);
+nameTwoInput.addEventListener('keyup', disableButtons);
 submitBtn.addEventListener('click', increment);
 submitBtn.addEventListener('click', playerOneGuess);
 submitBtn.addEventListener('click', playerTwoGuess);
@@ -31,11 +36,16 @@ submitBtn.addEventListener('click', guessUpdates);
 submitBtn.addEventListener('click', outsideRanges);
 submitBtn.addEventListener('click', emptyNames);
 submitBtn.addEventListener('click', emptyGuesses);
+submitBtn.addEventListener('click', togglePlayerErrorInput);
+updateBtn.addEventListener('click', toggleRangeErrorInput);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdates);
 updateBtn.addEventListener('click', errorRanges);
+updateBtn.addEventListener('click', emptyRange);
 updateBtn.addEventListener('click', resetCounter);
 updateBtn.addEventListener('click', clearRangeFields);
+
+
 
 cardField.addEventListener('click', function (e) {
   if (e.target.className === 'x-btn') {
@@ -72,8 +82,8 @@ function genNum(min,max){
 
 function randomNumber(e){
   e.preventDefault();
-  var min1=minInput.value;
-  var max1=maxInput.value;
+  var min1=minInput.value || 1;
+  var max1=maxInput.value || 100;
   randomNum=genNum(min1,max1);
   console.log(randomNum)
 };
@@ -86,11 +96,40 @@ function disableButtons (){
 
 function disableToggleHelper (valueOne, valueTwo, button) {
   if(valueOne === '' && valueTwo === ''){
-    button.diabled == true;
+    button.disabled = true;
     button.classList.add('disabled');
   }else{
-    button.disabled == false;
+    button.disabled = false;
     button.classList.remove('disabled');
+  }
+};
+
+function emptyRange(){
+  if(minInput.value === '' || maxInput.value === ''){
+    errorParaRangeOne.innerText = "Please set a min and max range.";
+  }else{
+    errorParaRangeOne.innerText = '';
+  }
+}
+
+function toggleRangeErrorInput () {
+  toggleErrorHelper(minInput);
+  toggleErrorHelper(maxInput);
+};
+
+function togglePlayerErrorInput () {
+  toggleErrorHelper(nameOneInput);
+  toggleErrorHelper(nameTwoInput);
+  toggleErrorHelper(guessOneInput);
+  toggleErrorHelper(guessTwoInput);
+};
+
+
+function toggleErrorHelper (input) {
+  if(input.value == ''){
+    input.classList.add('input-error');
+  }else{
+    input.classList.remove('input-error');
   }
 };
 
@@ -161,8 +200,6 @@ function guessUpdates (){
 };
 
 function errorRanges (){
-  var errorParaRangeOne=document.querySelector('.error-p-range-1');
-  var errorParaRangeTwo=document.querySelector('.error-p-range-2');
   if(parseInt(maxInput.value) <= parseInt(minInput.value)){
     errorParaRangeOne.innerText = 'Min range must be lower than max range!';
     errorParaRangeTwo.innerText = 'Max range must be higher than min range!';
@@ -228,11 +265,7 @@ function resetCounter(){
   counter = 0;
 };
 
-// function emptyRange(){
-//   if(parseInt(minInput.value)=== '' || parseInt(maxInput.value)=== ''){
-//     errorParaRange.innerText = "Please set a min and max range.";
-//   }
-// }
+
 
 // function noE(){
 //   if(minInput.value === 'e'){
