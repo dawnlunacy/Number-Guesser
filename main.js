@@ -42,13 +42,6 @@ cardField.addEventListener('click', function (e) {
   }
 });
 
-cardField.addEventListener('click', function(e){
-  if(e.target.className === 'clear-cards-btn') {
-    e.target.parentElement.remove();
-  }
-});
-
-
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
@@ -108,14 +101,26 @@ function playerGuesses (){
   guessMessageHelper(parseInt(guessTwoInput.value), boomMsgTwo);
 }
 
-function guessMessageHelper(playerGuess, message){
-  if (playerGuess > randomNum){
+function getWinner(message) {
+  if(message === boomMsgOne) {
+    return nameOneInput.value
+  }else{
+    return nameTwoInput.value}
+ }
+
+function guessMessageHelper(player, message){
+  if (player > randomNum){
     message.innerText = "That's too high";
   }else if (playerGuess < randomNum){
     message.innerText = "That's too low";
   }else if (playerGuess === randomNum){
     message.innerText ="BOOM!";
-    winner = nameOneInput.value;
+    winner = getWinner(message);
+    generateNewCard();
+  }
+}
+
+function generateNewCard(){    
     var newCard=
   `<article class="winner-card">
   <div class="card-header">
@@ -134,7 +139,7 @@ function guessMessageHelper(playerGuess, message){
 cardField.insertAdjacentHTML('afterbegin', newCard);
 adjustRange();
   }
-}
+
 
 function rangeUpdate(){
    minNum.innerText = minInput.value; 
@@ -206,6 +211,7 @@ function adjustRange(){
   var changeMax = maxNum.innerHTML;
   minNum.innerHTML = parseInt(changeMin) -10;
   maxNum.innerHTML = parseInt(changeMax) +10;
+
 }
 
 function increment(){
