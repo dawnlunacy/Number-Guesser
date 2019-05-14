@@ -124,6 +124,12 @@ function playerTwoGuess (){
   guessMessageHelper(parseInt(guessTwoInput.value), boomMsgTwo);
 }
 
+function getWinner(message) {
+  if(message === boomMsgOne) {return nameOneInput.value
+  } else {return nameTwoInput.value}
+ }
+
+
 function guessMessageHelper(player, message){
   if (player > randomNum){
     message.innerText = "That's too high";
@@ -131,7 +137,12 @@ function guessMessageHelper(player, message){
     message.innerText = "That's too low";
   }else if (player === randomNum){
     message.innerText ="BOOM!";
-    winner = nameOneInput.value;
+    winner = getWinner(message);
+    generateNewCard();
+  }
+}
+
+function generateNewCard(){    
     var newCard=
   `<article class="winner-card">
   <div class="card-header">
@@ -150,7 +161,7 @@ function guessMessageHelper(player, message){
 cardField.insertAdjacentHTML('afterbegin', newCard);
 adjustRange();
   }
-}
+
 
 function rangeUpdate(){
    minNum.innerText = minInput.value; 
