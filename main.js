@@ -125,8 +125,10 @@ function playerTwoGuess (){
 }
 
 function getWinner(message) {
-  if(message === boomMsgOne) {return nameOneInput.value
-  } else {return nameTwoInput.value}
+  if(message === boomMsgOne) {
+    return nameOneInput.value
+  }else{
+    return nameTwoInput.value}
  }
 
 
@@ -237,6 +239,7 @@ function adjustRange(){
   var changeMax = maxNum.innerHTML;
   minNum.innerHTML = parseInt(changeMin) -10;
   maxNum.innerHTML = parseInt(changeMax) +10;
+
 }
 
 function increment(){
