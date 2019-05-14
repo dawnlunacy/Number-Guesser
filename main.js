@@ -45,13 +45,6 @@ cardField.addEventListener('click', function (e) {
   }
 });
 
-cardField.addEventListener('click', function(e){
-  if(e.target.className === 'clear-cards-btn') {
-    e.target.parentElement.remove();
-  }
-});
-
-
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
@@ -181,6 +174,9 @@ function errorRanges (){
   if(parseInt(maxInput.value) <= parseInt(minInput.value)){
     errorParaRangeOne.innerText = 'Min range must be lower than max range!';
     errorParaRangeTwo.innerText = 'Max range must be higher than min range!';
+    }else{
+      errorParaRangeOne.innerText = '';
+      errorParaRangeTwo.innerText = '';
     }
 }
 
@@ -190,9 +186,9 @@ function outsideRanges (){
 }
 
 function errorOutsideRangeHelper(guess, error){
-  if(parseInt(guess) > parseInt(maxInput.value)){
+  if(parseInt(guess) > parseInt(maxNum.innerText)){
     error.innerText = "Guess is higher than range!";
-  }else if(parseInt(guess) < parseInt(minInput.value)){
+  }else if(parseInt(guess) < parseInt(minNum.innerText)){
     error.innerText = "Guess is lower than range!";
   }else{
     error.innerText = '';
@@ -250,5 +246,4 @@ function resetCounter(){
 //     errorPara.innerText = "ENTER A NUMBER!";
 //   }
 // }
-
 
