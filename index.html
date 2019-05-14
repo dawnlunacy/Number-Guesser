@@ -26,7 +26,7 @@
           <label for="max-range">Max Range</label>
           <input type="number" class="max-input" id="max-range" aria-required="true">
         </div>
-        <button type="submit" class="update-btn">UPDATE</button>
+        <button type="submit" class="update-btn disabled" disabled>UPDATE</button>
       </form>
       <p class="error-p-range-1"></p>
       <p class="error-p-range-2"></p>
@@ -58,8 +58,8 @@
       </form>
       <p class="error-p-chal-2"></p>
       <button type="submit" class="submit-btn" id= "larger-button">SUBMIT GUESS</button>
-      <button type="submit" class="reset-btn" onclick="location.reload();">RESET GAME</button>
-      <button type="submit" class="clear-btn">CLEAR GAME</button>
+      <button type="submit" disabled class="reset-btn  disabled" onclick="location.reload();">RESET GAME</button>
+      <button type="submit" disabled class="clear-btn  disabled">CLEAR GAME</button>
     </article>
     <article class="score-display">
       <h3 class= "score-header">Latest Score</h3>
