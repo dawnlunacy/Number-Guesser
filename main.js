@@ -45,6 +45,9 @@ submitBtn.addEventListener('click', emptyNameOne);
 submitBtn.addEventListener('click', emptyNameTwo);
 submitBtn.addEventListener('click', emptyGuessOne);
 submitBtn.addEventListener('click', emptyGuessTwo);
+submitBtn.addEventListener('click', outsideRange);
+submitBtn.addEventListener('click', emptyName);
+submitBtn.addEventListener('click', emptyGuess);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
@@ -205,6 +208,7 @@ function errorOutsideRangeHelper(guess, error){
   }
 }
 
+
 function emptyNameOne () {
   emptyNameHelper(nameOneInput.value, errorChalOne);
 }
@@ -218,6 +222,7 @@ function emptyNameHelper(name, errorName){
    errorName.innerText = "Please enter player name!";
   }
 }
+
 
 function emptyGuessOne () {
   emptyGuessHelper(guessOneInput.value, errorChalOne);
