@@ -199,7 +199,8 @@ h3{
   border: 2px solid #ec458b;
 }
 
-.error-p-range,
+.error-p-range-1,
+.error-p-range-2,
 .error-p-chal-1,
 .error-p-chal-2 {
   color: #ec458b;
@@ -274,7 +275,7 @@ img {
   display: flex;
   flex-direction: column;
   float: right;
-  height: 125vh;
+  height: 116vh;
   width: 50%;
 }
 

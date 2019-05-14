@@ -17,7 +17,8 @@ var chalOneName=document.querySelector('.chal-1-name');
 var chalTwoName=document.querySelector('.chal-2-name');
 var chalOneGuess=document.querySelector('.pink-guess-1');
 var chalTwoGuess=document.querySelector('.pink-guess-2');
-var errorParaRange=document.querySelector('.error-p-range');
+var errorParaRangeOne=document.querySelector('.error-p-range-1');
+var errorParaRangeTwo=document.querySelector('.error-p-range-2');
 var errorChalOne=document.querySelector('.error-p-chal-1');
 var errorChalTwo=document.querySelector('.error-p-chal-2');
 var cardField=document.querySelector('.card-field');
@@ -34,19 +35,16 @@ window.addEventListener('load', disableToggle2);
 minInput.addEventListener('keyup', disableToggle1);
 nameOneInput.addEventListener('keyup', disableToggle2);
 submitBtn.addEventListener('click', increment);
-submitBtn.addEventListener('click', guessMessage1);
-submitBtn.addEventListener('click', guessMessage2);
+submitBtn.addEventListener('click', playerOneGuess);
+submitBtn.addEventListener('click', playerTwoGuess);
 submitBtn.addEventListener('click', nameUpdate);
 submitBtn.addEventListener('click', guessUpdate);
-submitBtn.addEventListener('click', errorOutsideGuessOneMax);
-submitBtn.addEventListener('click', errorOutsideGuessOneMin);
-submitBtn.addEventListener('click', errorOutsideGuessTwoMax);
-submitBtn.addEventListener('click', errorOutsideGuessTwoMin);
-submitBtn.addEventListener('click', emptyNameInputOne);
-submitBtn.addEventListener('click', emptyGuessInputOne);
-submitBtn.addEventListener('click', emptyNameInputTwo);
-submitBtn.addEventListener('click', emptyGuessInputTwo);
-submitBtn.addEventListener('click', clearFields);
+submitBtn.addEventListener('click', outsideRangeOne);
+submitBtn.addEventListener('click', outsideRangeTwo);
+submitBtn.addEventListener('click', emptyNameOne);
+submitBtn.addEventListener('click', emptyNameTwo);
+submitBtn.addEventListener('click', emptyGuessOne);
+submitBtn.addEventListener('click', emptyGuessTwo);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
@@ -63,6 +61,8 @@ cardField.addEventListener('click', function(e){
     e.target.parentElement.remove();
   }
 });
+
+
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
@@ -116,13 +116,21 @@ function disableToggle2 (){
   }
 }
 
-function guessMessage1(){
-  if (parseInt(guessOneInput.value) > randomNum){
-    boomMsgOne.innerText = "That's too high";
-  }else if (parseInt(guessOneInput.value) < randomNum){
-    boomMsgOne.innerText = "That's too low";
-  }else{
-    boomMsgOne.innerText ="BOOM!";
+function playerOneGuess (){
+  guessMessageHelper(parseInt(guessOneInput.value), boomMsgOne);
+}
+
+function playerTwoGuess (){
+  guessMessageHelper(parseInt(guessTwoInput.value), boomMsgTwo);
+}
+
+function guessMessageHelper(player, message){
+  if (player > randomNum){
+    message.innerText = "That's too high";
+  }else if (player < randomNum){
+    message.innerText = "That's too low";
+  }else if (player === randomNum){
+    message.innerText ="BOOM!";
     winner = nameOneInput.value;
     var newCard=
   `<article class="winner-card">
@@ -144,34 +152,6 @@ adjustRange();
   }
 }
 
-function guessMessage2(){
-  if (parseInt(guessTwoInput.value) > randomNum){
-    boomMsgTwo.innerText = "That's too high";
-  }else if (parseInt(guessTwoInput.value) < randomNum){
-    boomMsgTwo.innerText = "That's too low";
-  }else{
-    boomMsgTwo.innerText ="BOOM!";
-    winner = nameTwoInput.value;
-    var newCard=
-  `<article class="winner-card">
-  <div class="card-header">
-  <h4 class="chal-1-name">${nameOneInput.value}</h4>
-  <p class ="vs">vs</p>
-  <h4 class="chal-2-name">${nameTwoInput.value}</h4>
-</div>
-  <h2 class="winner-name">${winner}</h2>
-  <h5>WINNER</h5>
-  <div class= "card-footer">
-  <p class="total-guesses" Guesses<a id="count"></a>${counter}</p>
-  <p class="time">1.35 MINUTES</p>
-  <button type="button" class="x-btn">&#10005;</button>
-</div>
-</article>`
-cardField.insertAdjacentHTML('afterbegin', newCard);
-adjustRange();
-    }
-  }
-
 function rangeUpdate(){
    minNum.innerText = minInput.value; 
    maxNum.innerText = maxInput.value;
@@ -189,79 +169,57 @@ function guessUpdate(){
 
 function errorRange(){
   if(parseInt(maxInput.value) <= parseInt(minInput.value)){
-    errorParaRange.innerText = "Min range must be lower than max range!";
+    errorParaRangeOne.innerText = 'Min range must be lower than max range!';
+    errorParaRangeTwo.innerText = 'Max range must be higher than min range!';
+    }
+}
+
+function outsideRangeOne (){
+  errorOutsideRangeHelper(guessOneInput.value, errorChalOne);
+}
+
+function outsideRangeTwo (){
+  errorOutsideRangeHelper(guessTwoInput.value, errorChalTwo);
+}
+
+
+function errorOutsideRangeHelper(guess, error){
+  if(parseInt(guess) > parseInt(maxInput.value)){
+    error.innerText = "Guess is higher than range!";
+  }else if(parseInt(guess) < parseInt(minInput.value)){
+    error.innerText = "Guess is lower than range!";
+  }else{
+    error.innerText = '';
   }
 }
 
-function errorOutsideGuessOneMax(){
-  if(parseInt(guessOneInput.value) > parseInt(maxInput.value)){
-  errorChalOne.innerText = "Guess is higher than range!";
+function emptyNameOne () {
+  emptyNameHelper(nameOneInput.value, errorChalOne);
+}
+
+function emptyNameTwo () {
+  emptyNameHelper(nameTwoInput.value, errorChalTwo);
+}
+
+function emptyNameHelper(name, errorName){
+  if(name === ''){
+   errorName.innerText = "Please enter player name!";
   }
 }
 
-function errorOutsideGuessOneMin(){
-  if(parseInt(guessOneInput.value) < parseInt(minInput.value)){
-  errorChalOne.innerText = "Guess is lower than range!";
-  }
+function emptyGuessOne () {
+  emptyGuessHelper(guessOneInput.value, errorChalOne);
 }
 
-function errorOutsideGuessTwoMax(){
-  if(parseInt(guessTwoInput.value) > parseInt(maxInput.value)){
-  errorChalTwo.innerText = "Guess is higher than range!";
-  }
+function emptyGuessTwo () {
+  emptyGuessHelper(guessTwoInput.value, errorChalTwo);
 }
 
-function errorOutsideGuessTwoMin(){
-  if(parseInt(guessTwoInput.value) < parseInt(minInput.value)){
-  errorChalTwo.innerText = "Guess is lower than range!";
+function emptyGuessHelper(guessInput, errorGuess){
+  if(guessInput=== ''){
+    errorGuess.innerText = "Please enter player guess!";
   }
 }
-
-function emptyNameInputOne(){
-  if(nameOneInput.value === ''){
-    errorChalOne.innerText = "Please enter player 1 name!";
-  }
-}
-
-function emptyGuessInputOne(){
-  if(guessOneInput.value === ''){
-    errorChalOne.innerText = "Please enter player 1 guess!";
-  }
-}
-
-function emptyNameInputTwo(){
-  if(nameTwoInput.value === ''){
-    errorChalTwo.innerText = "Please enter player 2 name!";
-  }
-}
-
-function emptyGuessInputTwo(){
-  if(guessTwoInput.value === ''){
-    errorChalTwo.innerText = "Please enter player 2 guess!";
-  }
-}
-
-// function createCard(e) {
-//   e.preventDefault(e);
-//   cardField.innerHTML +=
-//   `<article class="winner-card">
-//   <div class="card-header">
-//   <h4 class="chal-1-name">${nameOneInput.value}</h4>
-//   <p class ="vs">vs</p>
-//   <h4 class="chal-2-name">${nameTwoInput.value}</h4>
-// </div>
-//   <h2 class="winner-name">${winner}</h2>
-//   <h5>WINNER</h5>
-//   <div class= "card-footer">
-//   <p class="total-guesses" Guesses<a id="count"></a>0</p>
-//   <p class="time">1.35 MINUTES</p>
-//   <button type="button" class="x-btn">&#10005;</button>
-// </div>
-// </article>`
-//     adjustRange();
-//     clearFields();
-// // cardField.insertAdjacentHTML('afterbegin', newCard);
-// }
 
 function adjustRange(){
   var changeMin = minNum.innerHTML;
@@ -271,21 +229,12 @@ function adjustRange(){
 }
 
 function increment(){
-  console.log('first', counter);
   counter++;
-  console.log('second', counter);
 }
 
 function resetCounter(){
   counter = 0;
 }
-
-
-// function increment() {
-//   counter ++;
-//   document.getElementsById('count').innerHTML = counter;
-// }
-
 
 // function emptyRange(){
 //   if(parseInt(minInput.value)=== '' || parseInt(maxInput.value)=== ''){
