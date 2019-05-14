@@ -45,9 +45,12 @@ submitBtn.addEventListener('click', emptyNameOne);
 submitBtn.addEventListener('click', emptyNameTwo);
 submitBtn.addEventListener('click', emptyGuessOne);
 submitBtn.addEventListener('click', emptyGuessTwo);
-submitBtn.addEventListener('click', outsideRange);
-submitBtn.addEventListener('click', emptyName);
-submitBtn.addEventListener('click', emptyGuess);
+submitBtn.addEventListener('click', outsideRangeOne);
+submitBtn.addEventListener('click', outsideRangeTwo);
+submitBtn.addEventListener('click', emptyNameOne);
+submitBtn.addEventListener('click', emptyNameTwo);
+submitBtn.addEventListener('click', emptyGuessOne);
+submitBtn.addEventListener('click', emptyGuessTwo);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
@@ -197,7 +200,6 @@ function outsideRangeTwo (){
   errorOutsideRangeHelper(guessTwoInput.value, errorChalTwo);
 }
 
-
 function errorOutsideRangeHelper(guess, error){
   if(parseInt(guess) > parseInt(maxInput.value)){
     error.innerText = "Guess is higher than range!";
@@ -207,8 +209,6 @@ function errorOutsideRangeHelper(guess, error){
     error.innerText = '';
   }
 }
-
-
 function emptyNameOne () {
   emptyNameHelper(nameOneInput.value, errorChalOne);
 }
