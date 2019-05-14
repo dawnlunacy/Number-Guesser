@@ -10,6 +10,8 @@ var clearBtn=document.querySelector('.clear-btn');
 var minNum=document.querySelector('.min-num');
 var maxNum=document.querySelector('.max-num');
 var resetBtn=document.querySelector('.reset-btn');
+var boomMsgOne=document.querySelector('.boom-msg-1');
+var boomMsgTwo=document.querySelector('.boom-msg-2');
 var submitBtn=document.querySelector('.submit-btn');
 var errorChalOne=document.querySelector('.error-p-chal-1');
 var errorChalTwo=document.querySelector('.error-p-chal-2');
@@ -25,12 +27,13 @@ window.addEventListener('load', disableToggle2);
 minInput.addEventListener('keyup', disableToggle1);
 nameOneInput.addEventListener('keyup', disableToggle2);
 submitBtn.addEventListener('click', increment);
-submitBtn.addEventListener('click', playerGuesses);
+submitBtn.addEventListener('click', playerOneGuess);
+submitBtn.addEventListener('click', playerTwoGuess);
 submitBtn.addEventListener('click', nameUpdate);
 submitBtn.addEventListener('click', guessUpdate);
-submitBtn.addEventListener('click', outsideRanges);
-submitBtn.addEventListener('click', emptyNames);
-submitBtn.addEventListener('click', emptyGuesses);
+submitBtn.addEventListener('click', outsideRange);
+submitBtn.addEventListener('click', emptyName);
+submitBtn.addEventListener('click', emptyGuess);
 updateBtn.addEventListener('click',randomNumber);
 updateBtn.addEventListener('click',rangeUpdate);
 updateBtn.addEventListener('click', errorRange);
@@ -42,12 +45,20 @@ cardField.addEventListener('click', function (e) {
   }
 });
 
+cardField.addEventListener('click', function(e){
+  if(e.target.className === 'clear-cards-btn') {
+    e.target.parentElement.remove();
+  }
+});
+
+
 // updateBtn.addEventListener('click', emptyRange);
 
 // minInput.addEventListener('keydown', noE);
 
 
-function clearFields () {
+function clearFields (e) {
+  // e.preventDefault();
   minInput.value = '';
   maxInput.value = '';
   nameOneInput.value = '';
@@ -94,10 +105,11 @@ function disableToggle2 (){
   }
 }
 
-function playerGuesses (){
-  var boomMsgOne=document.querySelector('.boom-msg-1');
-  var boomMsgTwo=document.querySelector('.boom-msg-2');
+function playerOneGuess (){
   guessMessageHelper(parseInt(guessOneInput.value), boomMsgOne);
+}
+
+function playerTwoGuess (){
   guessMessageHelper(parseInt(guessTwoInput.value), boomMsgTwo);
 }
 
@@ -111,9 +123,9 @@ function getWinner(message) {
 function guessMessageHelper(player, message){
   if (player > randomNum){
     message.innerText = "That's too high";
-  }else if (playerGuess < randomNum){
+  }else if (player < randomNum){
     message.innerText = "That's too low";
-  }else if (playerGuess === randomNum){
+  }else if (player === randomNum){
     message.innerText ="BOOM!";
     winner = getWinner(message);
     generateNewCard();
@@ -169,7 +181,7 @@ function errorRange(){
     }
 }
 
-function outsideRanges (){
+function outsideRange (){
   errorOutsideRangeHelper(guessOneInput.value, errorChalOne);
   errorOutsideRangeHelper(guessTwoInput.value, errorChalTwo);
 }
@@ -184,7 +196,7 @@ function errorOutsideRangeHelper(guess, error){
   }
 }
 
-function emptyNames () {
+function emptyName () {
   emptyNameHelper(nameOneInput.value, errorChalOne);
   emptyNameHelper(nameTwoInput.value, errorChalTwo);
 }
@@ -195,7 +207,7 @@ function emptyNameHelper(name, errorName){
   }
 }
 
-function emptyGuesses () {
+function emptyGuess () {
   emptyGuessHelper(guessOneInput.value, errorChalOne);
   emptyGuessHelper(guessTwoInput.value, errorChalTwo);
 }
@@ -234,5 +246,4 @@ function resetCounter(){
 //   }
 // }
 
-********
 
