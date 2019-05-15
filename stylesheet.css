@@ -83,12 +83,12 @@ label {
   color:#606060;
 }
 
-.error-p-range-1,
+/*.error-p-range-1,
 .error-p-range-2,
 .error-p-chal-1,
 .error-p-chal-2,{
   height:20px;
-}
+}*/
 
 .min-div,
 .max-div{
@@ -214,10 +214,15 @@ h3{
   margin-left: 30px;
 }
 
-img {
+.img-error{
+  margin-top:2px;
+  height:17px;
+}
+
+/*img {
   height: 20px;
   margin-top: 10px;
-  width: 20px;
+  width: 20px;*/
 }
 
 .score-header{
