@@ -106,7 +106,8 @@ function disableToggleHelper (valueOne, valueTwo, button) {
 
 function emptyRange(){
   if(minInput.value === '' || maxInput.value === ''){
-    errorParaRangeOne.innerText = "Please set a min and max range.";
+    errorParaRangeOne.innerText = " Please set a min and max range.";
+    errorParaRangeOne.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
   }else{
     errorParaRangeOne.innerText = '';
   }
@@ -201,8 +202,10 @@ function guessUpdates (){
 
 function errorRanges (){
   if(parseInt(maxInput.value) <= parseInt(minInput.value)){
-    errorParaRangeOne.innerText = 'Min range must be lower than max range!';
-    errorParaRangeTwo.innerText = 'Max range must be higher than min range!';
+    errorParaRangeOne.innerText = ' Min range must be lower than max range!';
+    errorParaRangeOne.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
+    errorParaRangeTwo.innerText = ' Max range must be higher than min range!';
+    errorParaRangeTwo.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
     }else{
       errorParaRangeOne.innerText = '';
       errorParaRangeTwo.innerText = '';
@@ -216,9 +219,12 @@ function outsideRanges (){
 
 function errorOutsideRangeHelper(guess, error){
   if(parseInt(guess) > parseInt(maxNum.innerText)){
-    error.innerText = "Guess is higher than range!";
+    error.innerText = " Guess is higher than range!";
+    error.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
   }else if(parseInt(guess) < parseInt(minNum.innerText)){
-    error.innerText = "Guess is lower than range!";
+    error.innerText = " Guess is lower than range!";
+    error.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
+
   }else{
     error.innerText = '';
   }
@@ -231,7 +237,8 @@ function emptyNames () {
 
 function emptyNameHelper(name, errorName){
   if(name === ''){
-   errorName.innerText = "Please enter player name!";
+   errorName.innerText = " Please enter player name!";
+   errorName.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
   }
 };
 
@@ -242,7 +249,8 @@ function emptyGuesses () {
 
 function emptyGuessHelper(guessInput, errorGuess){
   if(guessInput=== ''){
-    errorGuess.innerText = "Please enter player guess!";
+    errorGuess.innerText = " Please enter player guess!";
+    errorGuess.insertAdjacentHTML('afterbegin', `<img src='error-icon.svg' class="img-error">`)
   }
 };
 
