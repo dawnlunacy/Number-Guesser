@@ -6,7 +6,7 @@ html {
 }
 
 body {
-  /* background-color: #d1d2d4; */
+  background-color: #d1d2d4;
   font-family: "Open sans";
   margin: 0;
 }
@@ -21,8 +21,6 @@ header {
 }
 
 .p-header {
-  font-size: 20px;
-  font-weight: 300;
   margin: 0;
 }
 
@@ -74,6 +72,7 @@ h1 {
   color:  white;
   display: flex;
   font-size: 30px;
+  font-weight: 300;
   justify-content: center;
   margin-left: 26%;
   text-align: center;
@@ -250,13 +249,16 @@ h3{
 }
 
 .submit-btn:hover{
-  background-color: #ec458b;}
+  background-color: #ec458b;
+}
 
 .reset-btn:hover{
-  background-color: #ec458b;}
+  background-color: #ec458b;
+}
+
 
 .clear-btn:hover{
-  background-color: #ec458b;}
+  background-color: #ec458b;
 }
 
 #larger-button{
@@ -347,7 +349,7 @@ h3{
   display: flex;
   flex-direction: column;
   float: right;
-  height: 116vh;
+  height: 120vh;
   width: 50%;
   }
 
@@ -429,7 +431,7 @@ h5 {
 }
 
 .time {
-  margin-left: 170px;
+  margin-left: 190px;
 }
 
 .x-btn {
@@ -441,7 +443,6 @@ h5 {
   margin-left: 240px;
   margin-top: 8px;
   width: 40px;
-
 }
 
 .x-btn:hover{
@@ -451,28 +452,44 @@ h5 {
   align-self: flex-end;
  }
 
+ @media screen and (max-width: 1250px) {
+
+  .range-field {
+    height: 200px;
+  }
+
+  .update-btn {
+    width: 30%;
+  }
+
+  .p-header {
+    font-size: 20px;
+    margin-left: 20%;
+    width: 60%;
+  }
+ }
+
+
 @media screen and (max-width: 1000px) {
 
   h1 {
-    font-size: 40px;
+    font-size: 50px;
     padding-top: 10px;
   }
 
   .p-header {
-    align-items: center;
-    color:  white;
-    display: flex;
     font-size: 16px;
-    justify-content: center;
-    margin-left: 16%;
-    padding-bottom: 10px;
-    text-align: center;
-    width: 68%;
+    margin-left: 28%;
+    width: 45%;
   }
   
   .input-field {
     float: none;
     width: 100%;
+  }
+
+  .range-field {
+    height: 300px;
   }
 
   .card-field {
@@ -494,17 +511,11 @@ h5 {
     margin-bottom: 20px;
     margin-left: 3%;
     width: 26%;
-    
-
+  }
 
   label {
     font-size: 20px;
   }
-
-  /* .name-1-input,
-  .name-2-input {
-    width: 90%;
-  } */
 
   .name1-div1,
   .name1-div2,
@@ -519,58 +530,97 @@ h5 {
   width: 90%;
 }
 
-  .guess-1-input,
-  .guess-2-input {
-    width: 90%;
+.guess-1-input,
+.guess-2-input {
+  width: 90%;
+}
+
+.submit-btn,
+.reset-btn, 
+.clear-btn {
+  display: block;
+  margin: 20px;
+  width: 90%;
+}
+
+#larger-button {
+  width: 90%;
+}
+
+.chal-1-info {
+  height: 40%;
+  width: 100%;
+}
+
+.chal-2-info {
+  border-top: 3px solid #f8f8f8;
+  display: block;
+  height: 60%;
+  width: 100%;
+}
+
+.chal-1-name, 
+.chal-2-name {
+  display: block;
+}
+
+.chal-2-name {
+  margin-top: 20px;
+}
+
+.vs {
+  margin: 0;
+}
+
+.x-btn {
+  margin-left: 100px;
+}
+
+.card-field {
+  border: none;
+}
+
+.winnerCard {
+  margin-bottom: 20px;
+}
+
+}
+
+@media screen and (max-width: 720px) {
+
+  .p-header {
+    margin-left: 20%;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  h1{
+    font-size: 30px;
   }
 
-  .submit-btn,
-  .reset-btn, 
-  .clear-btn {
-    display: block;
-    margin: 20px;
-    width: 90%;
+  .p-header{
+    font-size: 8px;
   }
 
-  #larger-button {
-    width: 90%;
+  .range-field {
+    height: 300px;
   }
 
-  .chal-1-info {
-    height: 40%;
-    width: 100%;
+  .update-btn {
+    width: 50%;
   }
 
-  .chal-2-info {
-    border-top: 3px solid #f8f8f8;
-    display: block;
-    height: 60%;
-    width: 100%;
+  .cur-range {
+    margin-left: 10px;
   }
 
-  .chal-1-name, 
-  .chal-2-name {
-    display: block;
-  }
-
-  .chal-2-name {
-    margin-top: 20px;
-  }
-
-  .vs {
-    margin: 0;
+  .time {
+    margin-left: 100px
   }
 
   .x-btn {
     margin-left: 100px;
   }
-
-  .card-field {
-    border: none;
-  }
-
-  .winnerCard {
-    margin-bottom: 20px;
-  }
-
 }
