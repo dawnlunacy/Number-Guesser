@@ -31,7 +31,43 @@ h1 {
   font-size: 80px;
   margin: 0;
   text-align: center;
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+@keyframes slide-in-elliptic-top-fwd {
+  0% {
+    transform: translateY(-600px) rotateX(-30deg) scale(0);
+            transform: translateY(-600px) rotateX(-30deg) scale(0);
+    transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) rotateX(0) scale(1);
+            transform: translateY(0) rotateX(0) scale(1);
+    transform-origin: 50% 1400px;
+            transform-origin: 50% 1400px;
+    opacity: 1;
+  }
+}
+
 
 .p-header {
   align-items: center;
@@ -83,13 +119,6 @@ label {
   color:#606060;
 }
 
-/*.error-p-range-1,
-.error-p-range-2,
-.error-p-chal-1,
-.error-p-chal-2,{
-  height:20px;
-}*/
-
 .min-div,
 .max-div{
   display: inline-block;
@@ -104,7 +133,7 @@ label {
 
 }
 
-.update-btn {
+.update-btn{
   background-color: #6E6E6E;
   border: none;
   border-radius: 30px;
@@ -115,7 +144,36 @@ label {
   margin-bottom: 10px;
   margin-left:35px;
   width: 20%;
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
+  @keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.update-btn:hover{
+  background-color: #ec458b;}
 
 .range-field,
 .player-field,
@@ -134,7 +192,7 @@ label {
 
 .min-num,
 .max-num {
-  color: #606060;
+  color: #ec458b;
   font-weight: 800;
   text-decoration: underline;
 }
@@ -191,6 +249,16 @@ h3{
   width: 29%;
 }
 
+.submit-btn:hover{
+  background-color: #ec458b;}
+
+.reset-btn:hover{
+  background-color: #ec458b;}
+
+.clear-btn:hover{
+  background-color: #ec458b;}
+}
+
 #larger-button{
   width: 33%;
 }
@@ -217,12 +285,6 @@ h3{
 .img-error{
   margin-top:2px;
   height:17px;
-}
-
-/*img {
-  height: 20px;
-  margin-top: 10px;
-  width: 20px;*/
 }
 
 .score-header{
@@ -287,13 +349,43 @@ h3{
   float: right;
   height: 116vh;
   width: 50%;
-}
+  }
 
 .winner-card {
   background-color: white;
   border: 1px solid #606060;
   margin-top: 20px;
   width: 90%;
+  animation: rotate-scale-up 0.65s linear both;;
+}
+
+@keyframes card-field {
+  0% {
+            transform: scale(1)rotateZ(0);
+            transform: scale(1) rotateZ(0);
+    }
+  50% {
+            transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+    }
+  100% {
+            transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
+}
+@keyframes rotate-scale-up {
+  0% {
+    transform: scale(1) rotateZ(0);
+            transform: scale(1) rotateZ(0);
+  }
+  50% {
+    transform: scale(2) rotateZ(180deg);
+            transform: scale(2) rotateZ(180deg);
+  }
+  100% {
+    transform: scale(1) rotateZ(360deg);
+            transform: scale(1) rotateZ(360deg);
+  }
 }
 
 .vs {
@@ -349,11 +441,15 @@ h5 {
   margin-left: 240px;
   margin-top: 8px;
   width: 40px;
+
 }
+
+.x-btn:hover{
+  background-color: #ec458b;}
 
 .clear-cards-btn{
   align-self: flex-end;
-}
+ }
 
 @media screen and (max-width: 1000px) {
 
@@ -398,7 +494,8 @@ h5 {
     margin-bottom: 20px;
     margin-left: 3%;
     width: 26%;
-  }
+    
+
 
   label {
     font-size: 20px;
