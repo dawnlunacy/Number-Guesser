@@ -274,10 +274,3 @@ function resetCounter(){
 };
 
 
-
-// function noE(){
-//   if(minInput.value === 'e'){
-//     errorPara.innerText = "ENTER A NUMBER!";
-//   }
-// }
-
