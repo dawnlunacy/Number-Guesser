@@ -20,6 +20,7 @@ var errorParaRangeOne=document.querySelector('.error-p-range-1');
 var errorParaRangeTwo=document.querySelector('.error-p-range-2');
 var winner;
 var counter = 0;
+var timer = 0;
 
 clearBtn.addEventListener('click', clearAll);
 clearBtn.addEventListener('click', disableButtons);
@@ -273,4 +274,30 @@ function resetCounter(){
   counter = 0;
 };
 
+var konamiKeys = {
+	37: 'left',
+	38: 'up',
+	39: 'right',
+	40: 'down',
+	65: 'a',
+	66: 'b',
+}
 
+var myKonamiCode = ['up','up','down','down','left','right','left','right','b','a'];
+var konamiPosition = 0;
+
+document.addEventListener('keydown', function(e) {
+	var key = konamiKeys[e.keyCode];
+	var requiredKey = myKonamiCode[konamiPosition];
+	if (key == requiredKey) {
+		konamiPosition++;
+		} else {
+			konamiPosition = 0;
+		};
+	if (konamiPosition == myKonamiCode.length) {
+		showAlert();
+		};
+	});
+function showAlert() {
+	alert('CHAL-HEADS FA LIFE!!!');
+};
