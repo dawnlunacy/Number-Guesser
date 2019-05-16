@@ -25,12 +25,12 @@ header {
 }
 
 h1 {
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   color: #ec458b;
   font-size: 80px;
   margin: 0;
   text-align: center;
-  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: slide-in-elliptic-top-fwd 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @keyframes slide-in-elliptic-top-fwd {
@@ -81,10 +81,10 @@ h1 {
 
 .p-header:before,
 .p-header:after {
-    content: '';
     border-top: 2px solid;
-    margin: 0 20px 0 0;
+    content: '';
     flex: 1 0 20px;
+    margin: 0 20px 0 0;
 }
 
 .p-header:after {
@@ -95,7 +95,6 @@ h1 {
   align-items: center;
   background-color: #f8f8f8;
   display: flex;
-  /* height: 125vh; */
   flex-direction: column;
   float: left;
   width: 50%;
@@ -114,8 +113,8 @@ h1 {
 }
 
 label {
-  display: block;
   color:#606060;
+  display: block;
 }
 
 .min-div,
@@ -133,6 +132,8 @@ label {
 }
 
 .update-btn{
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   background-color: #6E6E6E;
   border: none;
   border-radius: 30px;
@@ -143,8 +144,6 @@ label {
   margin-bottom: 10px;
   margin-left:35px;
   width: 20%;
-  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
   @keyframes scale-in-center {
   0% {
@@ -354,11 +353,11 @@ h3{
   }
 
 .winner-card {
+  animation: rotate-scale-up 0.65s linear both;
   background-color: white;
   border: 1px solid #606060;
   margin-top: 20px;
   width: 90%;
-  animation: rotate-scale-up 0.65s linear both;;
 }
 
 @keyframes card-field {

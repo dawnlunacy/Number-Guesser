@@ -45,9 +45,6 @@ updateBtn.addEventListener('click', errorRanges);
 updateBtn.addEventListener('click', emptyRange);
 updateBtn.addEventListener('click', resetCounter);
 updateBtn.addEventListener('click', clearRangeFields);
-
-
-
 cardField.addEventListener('click', function (e) {
   if (e.target.className === 'x-btn') {
     e.target.parentElement.parentElement.remove();
@@ -86,7 +83,6 @@ function randomNumber(e){
   var min1=minInput.value || 1;
   var max1=maxInput.value || 100;
   randomNum=genNum(min1,max1);
-  console.log(randomNum)
 };
 
 function disableButtons (){
@@ -112,7 +108,7 @@ function emptyRange(){
   }else{
     errorParaRangeOne.innerText = '';
   }
-}
+};
 
 function toggleRangeErrorInput () {
   toggleErrorHelper(minInput);
@@ -263,7 +259,6 @@ function adjustRanges (){
   var min1=parseInt(minNum.innerText);
   var max1=parseInt(maxNum.innerText);
   randomNum=genNum(min1,max1);
-  console.log(randomNum);
 };
 
 function increment(){
@@ -281,7 +276,7 @@ var konamiKeys = {
 	40: 'down',
 	65: 'a',
 	66: 'b',
-}
+};
 
 var myKonamiCode = ['up','up','down','down','left','right','left','right','b','a'];
 var konamiPosition = 0;
